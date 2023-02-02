@@ -1,31 +1,21 @@
 <template>
   <div class="container">
     <AppsHeader theTitle="Blogs"/>
-    <div v-for="item in listItems" :key="item.id">
-      <button class="btn btn-link">{{item.title}}</button>
-    </div>
+    <ButtonLink />
   </div>
-  </template>
+</template>
   
-  <script setup>
-  import { ref } from 'vue';
-  const listItems = ref([]);
 
-  async function getData() {
-    const res = await fetch("http://my-fire.test/api/blog");
-    const finalRes = await res.json();
-    listItems.value = finalRes;
-  }
-
- getData()
-</script>
 <script>
   import AppsHeader from './components/AppsHeader.vue';
+  //eslint-disable-next-line
+  import ButtonLink from './components/ButtonLink.vue';
 
   export default{
     name: 'App',
     components: {
-      AppsHeader
+      AppsHeader,
+      ButtonLink
     }
   }
 </script>
